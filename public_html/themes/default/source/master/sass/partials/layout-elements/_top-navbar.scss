@@ -1,0 +1,30 @@
+/* ---------------------------------------------------------------------- */
+/*  Top Navbar
+/* ---------------------------------------------------------------------- */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1089;
+    border: none;
+    margin-bottom: 0;
+    height: $header-height;
+
+    .loading-bar-wrapper {
+        position: absolute;
+        bottom: 0;
+        height: 3px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+}
+
+.navbar-header{
+    height: $header-height;
+    h3{
+        margin: 0;
+        padding: 0;
+        line-height: $header-height;
+    }
+}

@@ -1,0 +1,93 @@
+<div class="container-fluid container-fullw bg-white" ng-controller="ContactCtrl">
+    <div class="row buttons-widget">
+        <div class="col-md-8 col-md-offset-2">
+            <h5 class="over-title margin-bottom-15"><span class="text-bold" translate="home.PLEASE_SELECT">Please select operation</span></h5>
+            <div class="row">
+                <div class="col-sm-12 container-fullw bg-white">
+                    <form name="Form" id="form1" novalidate ng-submit="form.submit(Form)">
+                        <fieldset>
+                            <legend translate="contact.form.PERSONAL_INFO">Personal Information</legend>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-class="{'has-error':Form.first_name.$dirty && Form.first_name.$invalid, 'has-success':Form.first_name.$valid}">
+                                        <label class="control-label" for="first_name">
+                                            <span translate="contact.form.FNAME_L">First Name</span>
+                                            <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" id="first_name" placeholder="{{'contact.form.FNAME_P' | translate}}" class="form-control" name="first_name" ng-model="contact_data.first_name" required />
+                                        <span class="error text-small block" ng-if="Form.first_name.$dirty && Form.first_name.$invalid">{{'contact.form.FNAME_L' | translate}} {{'contact.form.REQUIRED' | translate}}</span>
+                                        <span class="success text-small" ng-if="Form.first_name.$valid" translate="contact.form.THANK_YOU">Thank You!</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-class="{'has-error':Form.last_name.$dirty && Form.last_name.$invalid, 'has-success':Form.last_name.$valid}">
+                                        <label class="control-label" for="last_name">
+                                            <span translate="contact.form.LNAME_L">Last Name</span>
+                                            <span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" id="last_name" placeholder="{{'contact.form.FNAME_P' | translate}}" class="form-control" name="last_name" ng-model="contact_data.last_name" required />
+                                        <span class="error text-small block" ng-if="Form.last_name.$dirty && Form.last_name.$invalid">{{'contact.form.LNAME_L' | translate}} {{'contact.form.REQUIRED' | translate}}</span>
+                                        <span class="success text-small" ng-if="Form.last_name.$valid" translate="contact.form.THANK_YOU">Thank You!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-class="{'has-error':Form.email.$dirty && Form.email.$invalid, 'has-success':Form.email.$valid}">
+                                        <label class="control-label" for="email">
+                                            <span translate="contact.form.EMAIL_L">Email</span>
+                                            <span class="symbol required"></span>
+                                        </label>
+                                        <input type="email" id="email" placeholder="{{'contact.form.EMAIL_P' | translate}}" class="form-control" name="email" ng-model="contact_data.email" required>
+                                        <span class="error text-small block" ng-if="Form.email.$dirty && Form.email.$error.required">{{'contact.form.EMAIL_L' | translate}} {{'contact.form.REQUIRED' | translate}}</span>
+                                        <span class="error text-small block" ng-if="Form.email.$error.email" translate="contact.form.PLEASE_ENTER_VALID_EMAIL">Please, enter a valid email address.</span>
+                                        <span class="success text-small" ng-if="Form.email.$valid" translate="contact.form.THANK_YOU">It's a valid e-mail!</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-class="{'has-error':Form.country_code.$dirty && Form.country_code.$invalid, 'has-success':Form.country_code.$valid}">
+                                        <label class="control-label" for="country_code">
+                                            <span translate="contact.form.COUNTRY_L">Country</span>
+                                            <span class="symbol required"></span>
+                                        </label>
+                                        <select
+                                                name="country_code"
+                                                id="country_code"
+                                                class="form-control"
+                                                ng-model="contact_data.country_code"
+                                                ng-options="item.code as item.name for item in contact_data.countries"
+                                                required>
+                                        </select>
+                                        <span class="error text-small block" ng-if="Form.country_code.$dirty && Form.country_code.$error.required">{{'contact.form.COUNTRY_L' | translate}} {{'contact.form.REQUIRED' | translate}}</span>
+                                        <span class="success text-small" ng-if="Form.country_code.$valid" translate="contact.form.THANK_YOU">Thank You!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend translate="contact.form.YOUR_MESSAGE">Your Message</legend>
+                            <div class="form-group" ng-class="{'has-error':Form.message.$dirty && Form.message.$invalid, 'has-success':Form.message.$valid}">
+                                <label class="control-label" for="message">
+                                    <span translate="contact.form.YOUR_MESSAGE">Your Message</span>
+                                    <span class="symbol required"></span>
+                                </label>
+                                <textarea rows="5" type="text" id="message" class="form-control" name="message" ng-model="contact_data.message" required></textarea>
+                                <span class="error text-small block" ng-if="Form.message.$dirty && Form.message.$error.required">{{'contact.form.YOUR_MESSAGE' | translate}} {{'contact.form.REQUIRED' | translate}}</span>
+                                <span class="success text-small" ng-if="Form.message.$valid" translate="contact.form.THANK_YOU">Thank You!</span>
+                            </div>
+                        </fieldset>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <button type="reset" class="btn btn-primary btn-o" ng-click="form.reset(Form)" translate="contact.form.RESET">Reset</button>
+                                    <button class="btn btn-default" translate="contact.form.IS_VALID">checkValid</button>
+                                    <button type="submit" class="btn btn-primary" translate="contact.form.SUBMIT">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

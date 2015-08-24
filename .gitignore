@@ -1,0 +1,15 @@
+/private/vendor
+/private/node_modules
+/private/.env
+/cgi-bin
+/logs
+/document_errors
+/stats
+/.idea
+/public_html/themes/default/source/node_modules
+/public_html/themes/default/source/bower_components
+/public_html/themes/default/source/.sass-cache
+
+
+# Reports / Documentation
+public_html/themes/default/source/npm-debug.log
